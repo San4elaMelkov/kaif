@@ -1,0 +1,96 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: "Gilroy", sans-serif;
+  background-color: var(--color-white);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.is-outer {
+  position: relative !important; // stylelint-disable-line declaration-no-important
+  left: -9999px !important; // stylelint-disable-line declaration-no-important
+}
+
+.site-container {
+  overflow: hidden;
+}
+
+.is-hidden {
+  display: none !important; // stylelint-disable-line declaration-no-important
+}
+
+.for-mobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.error {
+  border: 2px #ff4019 solid !important; // stylelint-disable-line declaration-no-important
+}
+
+.btn-reset {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 1.1312217194570136vw;
+  max-width: 96.843137vw;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+input:active,
+textarea:active {
+  outline: none;
+}
+
+:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea {
+  resize: horizontal;
+}

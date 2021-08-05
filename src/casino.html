@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#111111">
+  <title>Kaif RolePLay - Казино</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="site-container">
+    <main class="main">
+      <section class="casino">
+        <div class="casino__exit exit">
+          <p class="exit__text">Выйти</p>
+          <div class="exit__button">
+            <img src="img/sprite.svg#close-ico" alt="Close" class="exit__ico">
+          </div>
+        </div>
+        <div class="casino__container container">
+          <div class="casino__content">
+            <div class="casino__block block">
+              <div class="block__left information">
+                <div class="information__balance">
+                  <img src="img/sprite.svg#bank-ico" alt="Bank" class="information__balance_ico">
+                  <h3 class="information__balance_text">Ваш баланс:</h3>
+                  <span class="information__balance_money" id="player_balance">1.000.000$</span>
+                </div>
+                <div class="information__bank bank">
+                  <h3 class="bank__text" id="bank">Банк: <span>200.000$</span></h3>
+                  <h3 class="bank__descr" id="table_rate">Ставка стола: <span>2.00.000$</span></h3>
+                </div>
+                <form action="" method="POST" class="information__form form">
+                  <!-- start player -->
+                  <div class="form__item player">
+                    <div class="player__input">
+                      <input readonly type="text" class="form__input player__name" name="player_name[1]" value="Legenda_rus" placeholder="Legenda_rus">
+                      <p class="player__number">0</p>
+                    </div>
+                    <div class="player__rate rate">
+                      <img class="rate__image" src="img/sprite.svg#dice-ico" alt="Dice Icon" >
+                      <p class="rate__value">Ставка: <span>100.000.000$</span></p>
+                    </div>
+                  </div>
+                  <!-- end player -->
+                  <!-- start player -->
+                  <div class="form__item player">
+                    <div class="player__input">
+                      <input readonly type="text" class="form__input player__name" name="player_name[2]" value="Legenda_rus" placeholder="Legenda_rus">
+                      <p class="player__number">0</p>
+                    </div>
+                    <div class="player__rate rate">
+                      <img class="rate__image" src="img/sprite.svg#dice-ico" alt="Dice Icon" >
+                      <p class="rate__value">Ставка: <span>100.000.000$</span></p>
+                    </div>
+                  </div>
+                  <!-- end player -->
+                  <!-- start player -->
+                  <div class="form__item player">
+                    <div class="player__input">
+                      <input readonly type="text" class="form__input player__name" name="player_name[3]" value="Legenda_rus" placeholder="Legenda_rus">
+                      <p class="player__number">0</p>
+                    </div>
+                    <div class="player__rate rate">
+                      <img class="rate__image" src="img/sprite.svg#dice-ico" alt="Dice Icon" >
+                      <p class="rate__value">Ставка: <span>100.000.000$</span></p>
+                    </div>
+                  </div>
+                  <!-- end player -->
+                  <!-- start player -->
+                  <div class="form__item player">
+                    <div class="player__input">
+                      <input readonly type="text" class="form__input player__name" name="player_name[4]" value="Legenda_rus" placeholder="Legenda_rus">
+                      <p class="player__number">0</p>
+                    </div>
+                    <div class="player__rate rate">
+                      <img class="rate__image" src="img/sprite.svg#dice-ico" alt="Dice Icon" >
+                      <p class="rate__value">Ставка: <span>100.000.000$</span></p>
+                    </div>
+                  </div>
+                  <!-- end player -->
+
+                  <div class="form__item bid">
+                    <label for="" class="form__label bid__label">Введите сумму ставки</label>
+                    <div class="bid__input">
+                      <input readonly type="text" placeholder="0$" class="form__input bid__value">
+                      <button class="btn-reset bid__button bid__button-plus">
+                        <img src="img/sprite.svg#pluse-ico" alt="Pluse Icon">
+                      </button>
+                      <button class="btn-reset bid__button bid__button-minus">
+                        <img src="img/sprite.svg#minus-ico" alt="Minus Icon">
+                      </button>
+                    </div>
+                  </div>
+                  <button class="btn-reset form__button" id="start_game">Кинуть кости</button>
+
+                </form>
+              </div>
+
+
+              <div class="block__right start">
+                <!--start добавить к throw-->
+                <!-- <div class="throw__content">
+                  <div class="throw__blur-one"></div>
+                  <div class="throw__blur-two"></div>
+                  <h3 class="throw__title">6</h3>
+                  <p class="throw__descr">Вам выпало чило</p>
+                  <img src="img/dice-6.png" alt="Dice throw">
+                </div> -->
+                <div class="start__content">
+                  <h3 class="start__title" id="start_title">
+                    До начала игры осталось
+                  </h3>
+                  <p class="start__descr" id="start_descr">25 сек.</p>
+                    <svg class="start__progress progress" id="start_progress" data-percentage="0" viewBox="0 0 160 160">
+                      <circle class="progress__circle progress__incomplete" cx="80" cy="80" r="80"></circle>
+                      <circle class="progress__circle progress__complete" cx="80" cy="80" r="80"></circle>
+                      <image class="progress__logo" x="20%" y="36%" href="img/sprite.svg#logo-ico" transform="matrix(0, 1, -1, 0, 160, 0)"/>
+                    </svg>
+              </div>
+              <style>
+
+              
+
+              </style>
+            </div>
+          </div>
+        </div>
+  </div>
+  </section>
+  </main>
+  </div>
+  <script src="js/vendor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
