@@ -190,6 +190,8 @@
 .player {
   &__input {
     position: relative;
+    background: rgba(57, 62, 80, 0.62);
+
   }
 
   &__name {
@@ -204,29 +206,11 @@
     line-height: vw(19);
     color: var(--color-yellow);
     width: vw(431);
-    // &-off {
-    //   background: rgba(57, 62, 80, 0.62);
-    //   border: vw(1) solid #FFFFFF1A;
-    //   border-radius: vw(5);
-    //   padding: vw(22) vw(44);
-    //   width: vw(431);
-    //   background-image: url(../img/sprite.svg#user-off-ico);
-    //   background-repeat: no-repeat;
-    //   background-size: vw(35);
-    //   background-position: center left vw(5);
-    //   font-weight: 600;
-    //   font-size: vw(16);
-    //   line-height: vw(19);
-    //   color: rgba(255, 255, 255, 0.5);
-    //   margin-bottom: vw(25);
-    //   position: relative;
 
-    //   &::placeholder {
-    //     font-weight: 600;
-    //     font-size: vw(16);
-    //     line-height: vw(19);
-    //     color: rgba(255, 255, 255, 0.5);
-    //   }
+    &-inactive {
+      color: rgba(255, 255, 255, 0.5);
+      background-image: url(../img/sprite.svg#user-off-ico);
+    }
   }
 
   &__number {
@@ -253,6 +237,10 @@
   align-items: center;
   position: relative;
   margin-left: vw(19);
+
+  &-incative{
+    display: none;
+  }
 
   &::after {
     content: '';
@@ -291,7 +279,7 @@
   flex-direction: column!important;
   align-items: flex-start!important;
   width: vw(431)!important;
-  
+
 
   &__input {
     position: relative;
@@ -302,6 +290,8 @@
   &__value {
     text-align: center;
     position: absolute;
+    color: rgba(255, 255, 255, 0.5);
+    padding: vw(22) vw(17);
   }
 
   &__button {
@@ -334,17 +324,15 @@
   align-items: flex-start;
   flex-direction: column;
   width: vw(666);
-  
+
   &__input {
-    background: rgba(57, 62, 80, 0.62);
+    background-color: rgba(57, 62, 80, 0.62);
     border: vw(1) solid var(--color-yellow);
     border-radius: vw(5);
-    padding: vw(22) vw(17);
     width: vw(431);
     font-weight: 600;
     font-size: vw(16);
     line-height: vw(19);
-    color: rgba(255, 255, 255, 0.5);
     &::placeholder {
       font-weight: 600;
       font-size: vw(16);
@@ -464,12 +452,12 @@
   &__circle {
     fill: rgba(0,0,0,0);
     stroke: #FFE600;
-    stroke-dashoffset: 0; 
+    stroke-dashoffset: 0;
     stroke-width: 30;
   }
 
-  &__incomplete { 
-    opacity: 0.25; 
+  &__incomplete {
+    opacity: 0.25;
   }
   &__logo {
     width: 96px;
