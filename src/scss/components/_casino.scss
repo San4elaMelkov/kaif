@@ -422,6 +422,10 @@
   align-items: center;
   justify-content: center;
 
+  &__content {
+    justify-content: center;
+  }
+
   // .start__title
 
   &__title {
@@ -443,9 +447,14 @@
     line-height: vw(29);
     margin-bottom: vw(35);
     text-align: center;
+    span {
+      color: var(--color-yellow);
+    }
   }
 
   &__progress {
+    display: block;
+    margin: 0 auto;
     width: vw(160);
     height: vw(160);
     border-radius: 100%;

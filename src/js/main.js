@@ -5,12 +5,13 @@ $( document ).ready(function() {
       this._name = name;
       this._number = number;
       this._rate = rate;
+      this.renderPlayer();
     }
 
     set name(value) {
       if (value.length >= 0) {
         this._name = value;
-        this.renderNamePlayers()
+        this.renderNamePlayer()
       } else {
         throw new DOMException("Incorrect player name");
       }
@@ -19,7 +20,7 @@ $( document ).ready(function() {
     set number(value) {
       if (value > 0 && value < 7) {
         this._number = value;
-        this.renderNumberPlayers()
+        this.renderNumberPlayer()
       } else {
         throw new DOMException("Incorrect player number value ");
       }
@@ -28,7 +29,7 @@ $( document ).ready(function() {
     set rate(value) {
       if (value >= 0) {
         this._rate = value;
-        this.renderRatePlayers()
+        this.renderRatePlayer()
       } else {
         throw new DOMException("Incorrect player rate value ");
       }
@@ -46,17 +47,23 @@ $( document ).ready(function() {
       return this._rate;
     }
 
-    renderNumberPlayers() {
+    renderPlayer() {
+      this.renderNumberPlayer();
+      this.renderNamePlayer();
+      this.renderRatePlayer();
+    }
+
+    renderNumberPlayer() {
       playersNumberItems.eq(this._id).html(this._number);
       playersNumberItems.eq(this._id).trigger('change');
     }
 
-    renderNamePlayers() {
+    renderNamePlayer() {
       playersNameItems.eq(this._id).val(this._name);
       playersNameItems.eq(this._id).trigger('change');
     }
 
-    renderRatePlayers() {
+    renderRatePlayer() {
       playersRateItems.eq(this._id).html(this._rate);
       playersRateItems.eq(this._id).trigger('change');
     }
@@ -65,6 +72,40 @@ $( document ).ready(function() {
   let playersNameItems = $('input[name^="player[name]"]');
   let playersRateItems = $('.rate__value span.value');
   let playersNumberItems = $('.player__number');
+  let tableRate = $('#table_rate');
+  let playerBalance = $('#player_balance');
+  let bidValue = $('#bid_value');
+
+  let _seconds = 25;
+
+
+  let startCOntent = $("#start_content")
+  let startButton = $("#start_game");
+
+  let gameHelp = $("#game_help");
+
+  bidValue.on('input', function () {
+    if ($(this).val() > parseInt(playerBalance.html())){
+      $(this).val(parseInt(playerBalance.html()));
+    }
+  });
+
+  $('.bid__input .bid__button-plus').on('click', (event) => {
+    event.preventDefault();
+    let newValue = parseInt(bidValue.val()) + parseInt(tableRate.html());
+    if (newValue <= parseInt(playerBalance.html())){
+      bidValue.val(newValue);
+    }
+  });
+
+  $('.bid__input .bid__button-minus').on('click', (event) => {
+    event.preventDefault();
+    let newValue = parseInt(bidValue.val()) - parseInt(tableRate.html());
+    if (newValue >= 0){
+      bidValue.val(newValue);
+    }
+  });
+
 
   let players = [];
 
@@ -92,30 +133,24 @@ $( document ).ready(function() {
   }
 
   for (let i = 0; i < 4; i++) {
-    let player  = new Player(i);
+    let player  = new Player(i,);
     players.push(player);
   }
 
-  players[0].name = '';
-
-  let _seconds = 25;
-
-  let secondsItem = $("#start_descr");
-
-  let startButton = $("#start_game");
-
-  let progressItem = $('#start_progress');
-
-
   startButton.on("click",  (event) => {
       event.preventDefault();
-      startGame(progressItem);
+      showStartBlock();
+      startGame($('#start_progress'));
       changeButton(startButton);
   });
 
   function startGame(progress) {
+    let secondsItem = $("#start_descr");
+    let startTitle = $("#start_title");
     let completeItem = progress.find($('.progress__complete'));
 
+    setText(startTitle,"До начала игры осталось");
+    setSeconds(secondsItem, _seconds);
     // Get percentage of progress
     let percent = progress.data('percentage');
     // Get radius of the svg's circle.complete
@@ -124,32 +159,63 @@ $( document ).ready(function() {
     let circumference = 2 * Math.PI * radius;
     let strokeDashOffset = circumference - ((percent * circumference) / 100);
 
-    completeItem.css('stroke-dasharray', ((100 * circumference) / 100));
+    completeItem.css('stroke-dasharray', (100 * circumference / 100));
+    completeItem.css('stroke-dashoffset', 0);
 
     let s = _seconds;
-
     let secondsTimer = setInterval(() => {
         s--;
         setSeconds(secondsItem, s);
     }, 1000);
 
     completeItem.animate({'stroke-dashoffset': strokeDashOffset}, _seconds * 1000, () =>  {
-        showPriz();
-        clearInterval(secondsTimer);
-        changeButton(startButton);
+      showPlayerNumber(Math.floor(Math.random() * 6));
+      clearInterval(secondsTimer);
+      changeButton(startButton);
     });
 
   }
 
-  function setSeconds(item, text) {
-      item.html(`${text} сек.`);
+  function setText(item, text) {
+    item.html(text);
   }
 
-  function showPriz() {
-      console.log("complete");
+  function setSeconds(item, text) {
+    item.html(`${text} сек.`);
+  }
+
+  function showPlayerNumber(num) {
+    gameHelp.removeClass('start').addClass('throw');
+    gameHelp.html("").append(
+      `<div class="throw__content">
+        <div class="throw__blur-one"></div>
+        <div class="throw__blur-two"></div>
+        <h3 class="throw__title">${num}</h3>
+        <p class="throw__descr">Вам выпало чило</p>
+        <img src="img/dice-${num}.png" alt="Dice throw">
+      </div>
+    `);
+  }
+
+  showStartBlock('Ожидание игроков лобби', '<span>1</span>/4');
+  function showStartBlock(title= '', desc = '') {
+    gameHelp.removeClass('throw').addClass('start');
+    gameHelp.html("").append(
+      `<div class="start__content" id="start_content">
+        <h3 class="start__title" id="start_title">${title}</h3>
+        <p class="start__descr" id="start_descr">${desc}</p>
+        <svg class="start__progress progress" id="start_progress" data-percentage="0" viewBox="0 0 160 160">
+          <circle class="progress__circle progress__incomplete" cx="80" cy="80" r="80"></circle>
+          <circle class="progress__circle progress__complete" cx="80" cy="80" r="80"></circle>
+          <image class="progress__logo" x="20%" y="36%" href="img/sprite.svg#logo-ico" transform="matrix(0, 1, -1, 0, 160, 0)"/>
+        </svg>
+      </div>
+    `);
+
   }
 
   function changeButton(element) {
-      element.attr('disabled', !element.attr('disabled'));
+    // console.log(!element.attr('disabled'));
+    element.attr('disabled', !element.attr('disabled'));
   }
 });

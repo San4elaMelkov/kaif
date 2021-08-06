@@ -30,11 +30,11 @@
                 <div class="information__balance">
                   <img src="img/sprite.svg#bank-ico" alt="Bank" class="information__balance_ico">
                   <h3 class="information__balance_text">Ваш баланс:</h3>
-                  <span class="information__balance_money" id="player_balance">1.000.000$</span>
+                  <span class="information__balance_money" ><span id="player_balance">1000000</span><span>$</span></span>
                 </div>
                 <div class="information__bank bank">
-                  <h3 class="bank__text" id="bank">Банк: <span>200.000$</span></h3>
-                  <h3 class="bank__descr" id="table_rate">Ставка стола: <span>2.00.000$</span></h3>
+                  <h3 class="bank__text" >Банк: <span id="bank">200000</span><span>$</span></h3>
+                  <h3 class="bank__descr" >Ставка стола: <span id="table_rate">200000</span><span>$</span></h3>
                 </div>
                 <form action="" method="POST" class="information__form form">
                   <!-- start player -->
@@ -89,7 +89,7 @@
                   <div class="form__item bid">
                     <label for="bid_value" class="form__label bid__label">Введите сумму ставки</label>
                     <div class="bid__input">
-                      <input id="bid_value" type="text" placeholder="0$" value="" class="form__input bid__value">
+                      <input id="bid_value" type="number" placeholder="0$" value="0" class="form__input bid__value">
                       <button class="btn-reset bid__button bid__button-plus">
                         <img src="img/sprite.svg#pluse-ico" alt="Pluse Icon">
                       </button>
@@ -104,33 +104,7 @@
                 </form>
               </div>
 
-
-              <div class="block__right start">
-                <!--start добавить к throw-->
-                <!-- <div class="throw__content">
-                  <div class="throw__blur-one"></div>
-                  <div class="throw__blur-two"></div>
-                  <h3 class="throw__title">6</h3>
-                  <p class="throw__descr">Вам выпало чило</p>
-                  <img src="img/dice-6.png" alt="Dice throw">
-                </div> -->
-                <div class="start__content">
-                  <h3 class="start__title" id="start_title">
-                    До начала игры осталось
-                  </h3>
-                  <p class="start__descr" id="start_descr">25 сек.</p>
-                    <svg class="start__progress progress" id="start_progress" data-percentage="0" viewBox="0 0 160 160">
-                      <circle class="progress__circle progress__incomplete" cx="80" cy="80" r="80"></circle>
-                      <circle class="progress__circle progress__complete" cx="80" cy="80" r="80"></circle>
-                      <image class="progress__logo" x="20%" y="36%" href="img/sprite.svg#logo-ico" transform="matrix(0, 1, -1, 0, 160, 0)"/>
-                    </svg>
-              </div>
-              <style>
-
-
-
-              </style>
-            </div>
+            <div class="block__right" id="game_help"></div>
           </div>
         </div>
   </div>
