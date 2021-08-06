@@ -188,10 +188,10 @@
 }
 
 .player {
+
   &__input {
     position: relative;
     background: rgba(57, 62, 80, 0.62);
-
   }
 
   &__name {
@@ -208,6 +208,7 @@
     width: vw(431);
 
     &-inactive {
+      border-color: rgba(255, 255, 255, 0.5)!important;
       color: rgba(255, 255, 255, 0.5);
       background-image: url(../img/sprite.svg#user-off-ico);
     }
@@ -229,6 +230,11 @@
     justify-content: center;
     height: vw(33);
     width: vw(33);
+
+    &-inactive {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
   }
 }
 
@@ -238,7 +244,7 @@
   position: relative;
   margin-left: vw(19);
 
-  &-incative{
+  &-inactive{
     display: none;
   }
 
@@ -292,6 +298,7 @@
     position: absolute;
     color: rgba(255, 255, 255, 0.5);
     padding: vw(22) vw(17);
+    border-color: transparent!important;
   }
 
   &__button {
@@ -326,8 +333,8 @@
   width: vw(666);
 
   &__input {
-    background-color: rgba(57, 62, 80, 0.62);
     border: vw(1) solid var(--color-yellow);
+    background-color: rgba(57, 62, 80, 0.62);
     border-radius: vw(5);
     width: vw(431);
     font-weight: 600;

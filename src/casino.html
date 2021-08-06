@@ -40,56 +40,56 @@
                   <!-- start player -->
                   <div class="form__item player">
                     <div class="player__input">
-                      <input readonly type="text" class="form__input player__name" name="player_name[1]" value="Legenda_rus" placeholder="Legenda_rus">
-                      <p class="player__number">0</p>
+                      <input readonly type="text" class="form__input player__name player__name-inactive" name="player[name]" value="" placeholder="Свободно">
+                      <p class="player__number player__number-inactive">0</p>
                     </div>
-                    <div class="player__rate rate">
+                    <div class="player__rate rate rate-inactive">
                       <img class="rate__image" src="img/sprite.svg#dice-ico" alt="Dice Icon" >
-                      <p class="rate__value">Ставка: <span>100.000.000$</span></p>
+                      <p class="rate__value">Ставка: <span class="value">100.000.000</span><span>$</span></p>
                     </div>
                   </div>
                   <!-- end player -->
                   <!-- start player -->
                   <div class="form__item player">
                     <div class="player__input">
-                      <input readonly type="text" class="form__input player__name player__name-inactive" name="player_name[2]" value="Legenda_rus" placeholder="Legenda_rus">
-                      <p class="player__number">0</p>
+                      <input readonly type="text" class="form__input player__name player__name-inactive" name="player[name]" value="" placeholder="Свободно">
+                      <p class="player__number player__number-inactive">0</p>
                     </div>
-                    <div class="player__rate rate rate-incative">
+                    <div class="player__rate rate rate-inactive">
                       <img class="rate__image" src="img/sprite.svg#dice-ico" alt="Dice Icon" >
-                      <p class="rate__value">Ставка: <span>100.000.000$</span></p>
+                      <p class="rate__value">Ставка: <span class="value">100.000.000</span><span>$</span></p>
                     </div>
                   </div>
                   <!-- end player -->
                   <!-- start player -->
                   <div class="form__item player">
                     <div class="player__input">
-                      <input readonly type="text" class="form__input player__name" name="player_name[3]" value="Legenda_rus" placeholder="Legenda_rus">
-                      <p class="player__number">0</p>
+                      <input readonly type="text" class="form__input player__name player__name-inactive" name="player[name]" value="" placeholder="Свободно">
+                      <p class="player__number player__number-inactive">0</p>
                     </div>
-                    <div class="player__rate rate">
+                    <div class="player__rate rate rate-inactive">
                       <img class="rate__image" src="img/sprite.svg#dice-ico" alt="Dice Icon" >
-                      <p class="rate__value">Ставка: <span>100.000.000$</span></p>
+                      <p class="rate__value">Ставка: <span class="value">100.000.000</span><span>$</span></p>
                     </div>
                   </div>
                   <!-- end player -->
                   <!-- start player -->
                   <div class="form__item player">
                     <div class="player__input">
-                      <input readonly type="text" class="form__input player__name" name="player_name[4]" value="Legenda_rus" placeholder="Legenda_rus">
-                      <p class="player__number">0</p>
+                      <input readonly type="text" class="form__input player__name player__name-inactive" name="player[name]" value="" placeholder="Свободно">
+                      <p class="player__number player__number-inactive">0</p>
                     </div>
-                    <div class="player__rate rate">
+                    <div class="player__rate rate rate-inactive">
                       <img class="rate__image" src="img/sprite.svg#dice-ico" alt="Dice Icon" >
-                      <p class="rate__value">Ставка: <span>100.000.000$</span></p>
+                      <p class="rate__value">Ставка: <span class="value">100.000.000</span><span>$</span></p>
                     </div>
                   </div>
                   <!-- end player -->
 
                   <div class="form__item bid">
-                    <label for="" class="form__label bid__label">Введите сумму ставки</label>
+                    <label for="bid_value" class="form__label bid__label">Введите сумму ставки</label>
                     <div class="bid__input">
-                      <input readonly type="text" placeholder="0$" class="form__input bid__value">
+                      <input id="bid_value" type="text" placeholder="0$" value="" class="form__input bid__value">
                       <button class="btn-reset bid__button bid__button-plus">
                         <img src="img/sprite.svg#pluse-ico" alt="Pluse Icon">
                       </button>
@@ -98,6 +98,7 @@
                       </button>
                     </div>
                   </div>
+
                   <button class="btn-reset form__button" id="start_game">Кинуть кости</button>
 
                 </form>
@@ -137,7 +138,7 @@
   </main>
   </div>
   <script src="js/vendor.js"></script>
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
